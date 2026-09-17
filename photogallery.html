@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Фотогалерея | БылиНеБыли</title>
+
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="png" href="image/tire.png">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="header">
+
+  <div class="header__inner container">
+
+    <a href="index.html" class="logo">
+      <img src="image/tire.png" alt="" class="logo__img"/>
+
+      <div class="logo__text">
+        <span class="logo__museum">МУЗЕЙ</span>
+        <span class="logo__brand">БылиНеБыли</span>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li><a href="index.html" class="nav__link">ГЛАВНАЯ</a></li>
+        <li><a href="index.html#about" class="nav__link">О НАС</a></li>
+        <li><a href="index.html#exhibitions" class="nav__link">ВЫСТАВКИ</a></li>
+        <li><a href="#" class="nav__link">Фото</a></li>
+        <li><a href="index.html#tickets" class="nav__link">ЦЕНЫ</a></li>
+        <li><a href="index.html#booking" class="nav__link">КОНТАКТЫ</a></li>
+      </ul>
+    </nav>
+
+    <button class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav">
+    <ul class="nav__list">
+      <li><a href="index.html" class="nav__link">ГЛАВНАЯ</a></li>
+      <li><a href="index.html#about" class="nav__link">О НАС</a></li>
+      <li><a href="index.html#exhibitions" class="nav__link">ВЫСТАВКИ</a></li>
+      <li><a href="#" class="nav__link">Фото</a></li>
+      <li><a href="index.html#tickets" class="nav__link">ЦЕНЫ</a></li>
+      <li><a href="index.html#booking" class="nav__link">КОНТАКТЫ</a></li>
+    </ul>
+  </nav>
+
+</header>
+
+
+<!-- PAGE -->
+<main class="photo-page">
+
+  <div class="container">
+
+    <!-- TITLE -->
+    <section class="photo-hero">
+
+      <span class="photo-hero__label">
+        ФОТОГАЛЕРЕЯ
+      </span>
+
+      <h1 class="photo-hero__title">
+        Откройте порталы<br>
+        в мир сказок и звёзд
+      </h1>
+
+    </section>
+
+
+    <!-- BIG PHOTO -->
+    <section class="photo-big">
+      <img src="image/gallery01.jpeg" alt="">
+    </section>
+
+
+    <!-- GRID -->
+    <section class="photo-grid">
+
+      <img src="image/gallery1.jpeg" alt="">
+      <img src="image/gallery2.jpeg" alt="">
+      <img src="image/gallery3.jpeg" alt="">
+      <img src="image/gallery4.jpeg" alt="">
+      <img src="image/gallery5.jpeg" alt="">
+      <img src="image/gallery6.jpeg" alt="">
+
+    </section>
+
+
+    <!-- VIDEO -->
+    <section class="photo-video">
+
+      <video controls poster="image/control.jpg">
+        <source src="image/galleryvideo.MP4" type="video/mp4">
+      </video>
+
+    </section>
+
+
+    <!-- SECOND GRID -->
+    <section class="photo-grid">
+
+      <img src="image/gallery7.jpeg" alt="">
+      <img src="image/gallery8.jpeg" alt="">
+      <img src="image/gallery9.png" alt="">
+      <img src="image/gallery10.jpg" alt="">
+      <img src="image/gallery11.jpg" alt="">
+      <img src="image/gallery12.jpg" alt="">
+
+    </section>
+
+
+    <!-- LAST PHOTO -->
+    <section class="photo-big photo-big--last">
+      <img src="image/gallery13.jpg" alt="">
+    </section>
+
+
+    <!-- TEXT -->
+    <section class="photo-text">
+
+      <p>
+        Зал музея наполнен атмосферой мистики,
+        интерактивными инсталляциями и живыми историями.
+      </p>
+
+      <a href="index.html#booking" class="btn btn--primary">
+        ЗАБРОНИРОВАТЬ
+      </a>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="container footer__inner">
+
+    <a href="index.html" class="footer__logo">
+      <img src="image/tire.png" alt="">
+    </a>
+
+    <p class="footer__copy">
+      © 2026 Музей БылиНеБыли. Все права защищены.
+    </p>
+
+    <nav class="footer__nav">
+      <a href="#" class="footer__link">О НАС</a>
+      <a href="#" class="footer__link">ВЫСТАВКИ</a>
+      <a href="#" class="footer__link">КОНТАКТЫ</a>
+    </nav>
+
+  </div>
+
+</footer>
+
+
+<!-- LIGHTBOX -->
+
+<div class="photo-lightbox" id="lightbox">
+
+  <span class="photo-lightbox__close">&times;</span>
+
+  <img src="" alt="" id="lightbox-img">
+
+</div>
+
+
+<script>
+
+const burger = document.getElementById('burger');
+const mobileNav = document.getElementById('mobileNav');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('burger--open');
+  mobileNav.classList.toggle('mobile-nav--open');
+});
+
+
+/* LIGHTBOX */
+
+const images = document.querySelectorAll('.photo-grid img, .photo-big img');
+
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const closeBtn = document.querySelector('.photo-lightbox__close');
+
+images.forEach((img) => {
+
+  img.addEventListener('click', () => {
+
+    lightbox.classList.add('active');
+
+    lightboxImg.src = img.src;
+
+  });
+
+});
+
+closeBtn.addEventListener('click', () => {
+
+  lightbox.classList.remove('active');
+
+});
+
+lightbox.addEventListener('click', (e) => {
+
+  if (e.target === lightbox) {
+
+    lightbox.classList.remove('active');
+
+  }
+
+});
+
+document.addEventListener('keydown', (e) => {
+
+  if (e.key === 'Escape') {
+
+    lightbox.classList.remove('active');
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
